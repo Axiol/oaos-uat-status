@@ -1,3 +1,4 @@
+import React from "react";
 import type { Deploy } from "@prisma/client";
 
 interface CardProps {
@@ -37,7 +38,7 @@ const Card: React.FC<CardProps> = ({ name, deploys }) => {
                         }/${date.getFullYear()} - ${date.getHours()}h${date.getMinutes()}`}
                       </p>
                       <p className="mb-3 text-gray-700">
-                        main par Arnaud Delante
+                        {deploy.branch} par {deploy.name}
                       </p>
                     </li>
                   );

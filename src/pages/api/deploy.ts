@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../server/db";
+import { db } from "~/server/db";
 import type { Deploy } from "@prisma/client";
 
 type ResponseData = {
