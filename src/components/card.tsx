@@ -15,9 +15,12 @@ const Card: React.FC<CardProps> = ({ name, deploys }) => {
         <h2 className="mb-4 text-xl font-semibold">{name}</h2>
         {firstDeploy && firstDeployDate && (
           <>
-            <p className="font-bold text-gray-700">{`${firstDeployDate.getDate()}/${
-              firstDeployDate.getMonth() + 1
-            }/${firstDeployDate.getFullYear()} - ${firstDeployDate.getHours()}h${firstDeployDate.getMinutes()}`}</p>
+            <p className="font-bold text-gray-700">
+              {firstDeployDate.toLocaleString("fr-BE", {
+                timeZone: "Europe/Brussels",
+              })}
+            </p>
+
             <p className="mb-4 text-gray-700">
               {firstDeploy.branch} par {firstDeploy.name}
             </p>
@@ -33,9 +36,9 @@ const Card: React.FC<CardProps> = ({ name, deploys }) => {
                   return (
                     <li key={`deploy_${name}_${index}`}>
                       <p className="font-bold text-gray-700">
-                        {`${date.getDate()}/${
-                          date.getMonth() + 1
-                        }/${date.getFullYear()} - ${date.getHours()}h${date.getMinutes()}`}
+                        {date.toLocaleString("fr-BE", {
+                          timeZone: "Europe/Brussels",
+                        })}
                       </p>
                       <p className="mb-3 text-gray-700">
                         {deploy.branch} par {deploy.name}
