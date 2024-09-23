@@ -13,12 +13,10 @@ interface DeploysProps {
   };
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
-  const deploys = (await fetch(`${env.NEXT_PUBLIC_BASE_URL}/api/deploy`, {
-    next: {
-      revalidate: 600,
-    },
-  })
+  const deploys = (await fetch(`${env.NEXT_PUBLIC_BASE_URL}/api/deploy`)
     .then((res) => {
       if (res.ok) {
         return res.json();
